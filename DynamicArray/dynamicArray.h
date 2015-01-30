@@ -3,7 +3,6 @@
 
 class DynamicArray
 {
-
 public:
 	DynamicArray();
 	DynamicArray(const unsigned int & _capacite);
@@ -17,6 +16,5 @@ private:
 	unsigned int capacite;
 	int * tabElements;
 };
-
 
 #endif //DYNAMICARRAY_H_
