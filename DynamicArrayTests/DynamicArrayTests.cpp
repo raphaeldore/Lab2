@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "CppUnitTest.h"
 
 #include "../DynamicArray/dynamicArray.h"
@@ -57,32 +57,32 @@ namespace DynamicArrayTests
 			Assert::AreEqual(NOUVELLE_VALEUR_ELEMENT, tableau.getElement(INDEX_ELEMENT));
 		}
 
-		//TEST_METHOD(augumenter_la_capacite_d_un_dynamicArray_devrait_preserver_le_contenu_deja_present)
-		//{
-		//	//Arrange
-		//	const int CAPACITE_DEPART = 3;
-		//	const int NOUVELLE_CAPACITE = 5;
+		TEST_METHOD(augumenter_la_capacite_d_un_dynamicArray_devrait_preserver_le_contenu_deja_present)
+		{
+			//Arrange
+			const int CAPACITE_DEPART = 3;
+			const int NOUVELLE_CAPACITE = 5;
 
-		//	DynamicArray tableau(CAPACITE_DEPART);
+			DynamicArray tableau(CAPACITE_DEPART);
 
-		//	for (unsigned int i = 0; i < CAPACITE_DEPART; ++i)
-		//	{
-		//		tableau.setElement(i, i*i);
-		//	}
+			for (unsigned int i = 0; i < CAPACITE_DEPART; ++i)
+			{
+				tableau.setElement(i, i*i);
+			}
 
-		//	//Action
-		//	tableau.setCapacite(NOUVELLE_CAPACITE);
+			//Action
+			tableau.setCapacite(NOUVELLE_CAPACITE);
 
-		//	//Assert
-		//	for (unsigned int i = 0; i < CAPACITE_DEPART; ++i)
-		//	{
-		//		Assert::AreEqual(int(i*i), tableau.getElement(i));
-		//	}
-		//	for (unsigned int i = CAPACITE_DEPART; i < NOUVELLE_CAPACITE; ++i)
-		//	{
-		//		Assert::AreEqual(0, tableau.getElement(i));
-		//	}
-		//}
+			//Assert
+			for (unsigned int i = 0; i < CAPACITE_DEPART; ++i)
+			{
+				Assert::AreEqual(int(i*i), tableau.getElement(i));
+			}
+			for (unsigned int i = CAPACITE_DEPART; i < NOUVELLE_CAPACITE; ++i)
+			{
+				Assert::AreEqual(0, tableau.getElement(i));
+			}
+		}
 
 		//TEST_METHOD(diminuer_la_capacite_d_un_dynamicArray_devrait_modifier_sa_capacite)
 		//{
@@ -125,17 +125,17 @@ namespace DynamicArrayTests
 		//	tableau.setElement(INDEX_NOUVEL_ELEMENT, NOUVELLE_ELEMENT);
 
 		//	//Assert
-		//	// Est-ce que les anciens éléments sont conservés ?
+		//	// Est-ce que les anciens Ã©lÃ©ments sont conservÃ©s ?
 		//	for (unsigned int i = 0; i < CAPACITE_DEPART; ++i)
 		//	{
 		//		Assert::AreEqual(int(i*i), tableau.getElement(i));
 		//	}
-		//	// Est-ce que les éléments vides sont initialisés à 0 ?
+		//	// Est-ce que les Ã©lÃ©ments vides sont initialisÃ©s Ã  0 ?
 		//	for (unsigned int i = CAPACITE_DEPART; i < tableau.getCapacite() - 1; ++i)
 		//	{
 		//		Assert::AreEqual(0, tableau.getElement(i));
 		//	}
-		//	// Est-ce que le nouvel élément a été ajouté
+		//	// Est-ce que le nouvel Ã©lÃ©ment a Ã©tÃ© ajoutÃ©
 		//	Assert::AreEqual(NOUVELLE_ELEMENT, tableau.getElement(INDEX_NOUVEL_ELEMENT));
 		//}
 
@@ -222,7 +222,7 @@ namespace DynamicArrayTests
 
 	//		//Assert
 	//		
-	//		// AssertDynamicArraysAreEqual est un méthode privée déclarée à la fin de la classe de tests. Enlever les commentaire pour y avoir accès.
+	//		// AssertDynamicArraysAreEqual est un mÃ©thode privÃ©e dÃ©clarÃ©e Ã  la fin de la classe de tests. Enlever les commentaire pour y avoir accÃ¨s.
 	//		AssertDynamicArraysAreEqual(tableau1, tableau2); 
 
 	//	}
@@ -310,13 +310,13 @@ namespace DynamicArrayTests
 	//		//Assert
 	//		Assert::AreEqual(TABLEAU_1_CAPACITE_DEPART + TABLEAU_2_CAPACITE, tableau1.getCapacite());
 	//		
-	//		//Est-ce que les éléments du tableau 1 sont toujours présents (à partir du début)
+	//		//Est-ce que les Ã©lÃ©ments du tableau 1 sont toujours prÃ©sents (Ã  partir du dÃ©but)
 	//		for (unsigned int i = 0; i < TABLEAU_1_CAPACITE_DEPART; ++i)
 	//		{
 	//			Assert::AreEqual(int(i*i), tableau1.getElement(i));
 	//		}
 	//		
-	//		//Est-ce que les éléments du tableau 2 ont été ajoutés à la suite du tableau 1 ?
+	//		//Est-ce que les Ã©lÃ©ments du tableau 2 ont Ã©tÃ© ajoutÃ©s Ã  la suite du tableau 1 ?
 	//		for (unsigned int i = TABLEAU_1_CAPACITE_DEPART; i < tableau1.getCapacite(); ++i)
 	//		{
 	//			Assert::AreEqual(tableau2.getElement(i - TABLEAU_1_CAPACITE_DEPART), tableau1.getElement(i));
