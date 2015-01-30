@@ -37,6 +37,8 @@ void DynamicArray::setElement(const unsigned int _index, const int _valeur)
 
 void DynamicArray::setCapacite(const unsigned int _capacite)
 {
+	if (_capacite < 1) throw std::invalid_argument("Vous ne pouvez pas redimensionner un tableau d'une capacité plus petite que 1");
+	
 	if (this->capacite != _capacite)
 	{
 		int * vieuxTableau = this->tabElements;
@@ -58,5 +60,4 @@ void DynamicArray::setCapacite(const unsigned int _capacite)
 
 		delete[] vieuxTableau;
 	}
-
 }
