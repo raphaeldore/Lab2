@@ -1,10 +1,6 @@
 #ifndef DYNAMICARRAY_H_
 #define DYNAMICARRAY_H_
 
-#ifdef _DEBUG
-#include <iostream>
-#endif
-
 class DynamicArray
 {
 

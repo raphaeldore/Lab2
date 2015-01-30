@@ -29,16 +29,26 @@ void DynamicArray::setElement(const unsigned int _index, const int _valeur)
 
 void DynamicArray::setCapacite(const unsigned int _capacite)
 {
-	int * vieuxTableau = this->tabElements;
-	int * nouveauTableau = new int[_capacite]();
-	
-	for (unsigned int i = 0; i < this->capacite; i++)
+	if (this->capacite != _capacite)
 	{
-		nouveauTableau[i] = vieuxTableau[i];
+		int * vieuxTableau = this->tabElements;
+		int * nouveauTableau = new int[_capacite]();
+
+		unsigned int tmpCapacite = this->capacite;
+		if (this->capacite > _capacite)
+		{
+			tmpCapacite = _capacite;
+		}
+
+		for (unsigned int i = 0; i < tmpCapacite; i++)
+		{
+			nouveauTableau[i] = vieuxTableau[i];
+		}
+
+		tabElements = nouveauTableau;
+		this->capacite = _capacite;
+
+		delete[] vieuxTableau;
 	}
 
-	tabElements = nouveauTableau;
-	this->capacite = _capacite;
-
-	delete[] vieuxTableau;
 }
