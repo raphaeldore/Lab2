@@ -24,6 +24,11 @@ int DynamicArray::getElement(const int& _index) const
 
 void DynamicArray::setElement(const unsigned int _index, const int _valeur)
 {
+	if (_index > this->capacite - 1)
+	{
+		this->setCapacite(_index + 1);
+	}
+
 	this->tabElements[_index] = _valeur;
 }
 
