@@ -8,10 +8,13 @@ class DynamicArray
 public:
 
 
+	DynamicArray();
+
+	int getCapacite();
+
 
 private:
-
-
+	unsigned int capacite;
 };
 
 
