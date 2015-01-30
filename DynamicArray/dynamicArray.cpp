@@ -1,4 +1,5 @@
 ﻿#include "dynamicArray.h"
+#include <stdexcept>
 
 DynamicArray::DynamicArray()
 {
@@ -8,6 +9,7 @@ DynamicArray::DynamicArray()
 
 DynamicArray::DynamicArray(const unsigned int& _capacite)
 {
+	if (_capacite < 1) throw std::invalid_argument("Vous ne pouvez pas initialiser un tableau plus petit que 1");
 	this->capacite = _capacite;
 	this->tabElements = new int[_capacite]();
 }
