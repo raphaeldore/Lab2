@@ -21,7 +21,7 @@ DynamicArray::DynamicArray(const DynamicArray& _dynamicArray)
 	this->tabElements = new int[_dynamicArray.getCapacite()];
 	this->capacite = _dynamicArray.getCapacite();
 
-	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	for (int i = 0; i < _dynamicArray.getCapacite(); i++)
 	{
 		this->setElement(i, _dynamicArray.getElement(i));
 	}
@@ -34,7 +34,7 @@ int DynamicArray::getCapacite() const
 
 int DynamicArray::getElement(const int& _index) const
 {
-	if (_index < 0 || _index > this->capacite - 1)
+	if (_index < 0 || _index >= this->getCapacite())
 		throw std::out_of_range("Vous avez tenté d'accèder à un élément hors du tableau");
 
 	return this->tabElements[_index];
@@ -95,7 +95,7 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 		}
 
 		// On copie ensuite les valeurs de _dynamicArray
-		for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+		for (int i = 0; i < _dynamicArray.getCapacite(); i++)
 		{
 			this->setElement(i, _dynamicArray.getElement(i));
 		}
@@ -116,7 +116,7 @@ DynamicArray& DynamicArray::operator+=(const DynamicArray& _dynamicArray)
 	dynamicArrayAAdditionner = _dynamicArray;
 
 	int capaciteDeDepart = this->getCapacite();
-	for (unsigned int i = 0; i < dynamicArrayAAdditionner.getCapacite(); i++)
+	for (int i = 0; i < dynamicArrayAAdditionner.getCapacite(); i++)
 	{
 		this->setElement(i + capaciteDeDepart, dynamicArrayAAdditionner.getElement(i));
 	}
@@ -138,7 +138,7 @@ bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
 
 	bool isEqual = true;
 
-	for (unsigned int i = 0; i < this->getCapacite(); i++)
+	for (int i = 0; i < this->getCapacite(); i++)
 	{
 		if (this->getElement(i) != _dynamicArray.getElement(i))
 		{

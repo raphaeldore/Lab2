@@ -319,7 +319,7 @@ namespace DynamicArrayTests
 			}
 			
 			//Est-ce que les éléments du tableau 2 ont été ajoutés à la suite du tableau 1 ?
-			for (unsigned int i = TABLEAU_1_CAPACITE_DEPART; i < tableau1.getCapacite(); ++i)
+			for (int i = TABLEAU_1_CAPACITE_DEPART; i < tableau1.getCapacite(); ++i)
 			{
 				Assert::AreEqual(tableau2.getElement(i - TABLEAU_1_CAPACITE_DEPART), tableau1.getElement(i));
 			}
@@ -347,7 +347,7 @@ namespace DynamicArrayTests
 				Assert::AreEqual(int(i*i), tableau.getElement(i));
 			}
 
-			for (unsigned int i = TABLEAU_CAPACITE_DEPART; i < tableau.getCapacite(); ++i)
+			for (int i = TABLEAU_CAPACITE_DEPART; i < tableau.getCapacite(); ++i)
 			{
 				int valeurElement = int((i - TABLEAU_CAPACITE_DEPART) * (i - TABLEAU_CAPACITE_DEPART));
 				Assert::AreEqual(valeurElement, tableau.getElement(i));
