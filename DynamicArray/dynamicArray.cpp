@@ -80,7 +80,7 @@ void DynamicArray::setCapacite(const unsigned int _capacite)
 
 DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 {
-	// Vérifie si l'objet tente de s'assigné à lui même
+	// Vérifie si l'objet tente de s'assigner à lui même
 	// Si oui, on arrête ici.
 	if (this != &_dynamicArray)
 	{
