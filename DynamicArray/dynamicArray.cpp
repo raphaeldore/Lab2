@@ -101,10 +101,18 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 
 DynamicArray& DynamicArray::operator+=(const DynamicArray& _dynamicArray)
 {
-	int capaciteDeDepart = this->getCapacite();
-	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	DynamicArray dynamicArrayAAdditionner;
+	if (&_dynamicArray == this) // Si on s'additionne soit-même
 	{
-		this->setElement(i + capaciteDeDepart, _dynamicArray.getElement(i));
+		dynamicArrayAAdditionner = *this;
+	}
+
+	dynamicArrayAAdditionner = _dynamicArray;
+
+	int capaciteDeDepart = this->getCapacite();
+	for (unsigned int i = 0; i < dynamicArrayAAdditionner.getCapacite(); i++)
+	{
+		this->setElement(i + capaciteDeDepart, dynamicArrayAAdditionner.getElement(i));
 	}
 
 	return *this;
@@ -129,7 +137,7 @@ bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
 		if (this->getElement(i) != _dynamicArray.getElement(i))
 		{
 			isEqual = false;
-			break; // Pas besoin de regarder le reste, puisque au moin un élément n'est pas le même
+			break; // Pas besoin de regarder le reste, puisque au moins un élément n'est pas le même
 		}
 	}
 
