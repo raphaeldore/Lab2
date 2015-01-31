@@ -11,6 +11,7 @@ DynamicArray::DynamicArray(const unsigned int& _capacite)
 {
 	if (_capacite < 1)
 		throw std::invalid_argument("Vous ne pouvez pas initialiser un tableau plus petit que 1");
+
 	this->capacite = _capacite;
 	this->tabElements = new int[_capacite]();
 }
@@ -35,6 +36,7 @@ int DynamicArray::getElement(const int& _index) const
 {
 	if (_index < 0 || _index > this->capacite - 1)
 		throw std::out_of_range("Vous avez tenté d'accèder à un élément hors du tableau");
+
 	return this->tabElements[_index];
 }
 
