@@ -63,7 +63,7 @@ void DynamicArray::setCapacite(const unsigned int _capacite)
 	if (this->capacite != _capacite)
 	{
 		int * vieuxTableau = this->tabElements;
-		int * nouveauTableau = new int[_capacite]();
+		this->tabElements = new int[_capacite]();
 
 		unsigned int tmpCapacite = this->capacite;
 		if (this->capacite > _capacite)
@@ -73,10 +73,9 @@ void DynamicArray::setCapacite(const unsigned int _capacite)
 
 		for (unsigned int i = 0; i < tmpCapacite; i++)
 		{
-			nouveauTableau[i] = vieuxTableau[i];
+			this->tabElements[i] = vieuxTableau[i];
 		}
 
-		tabElements = nouveauTableau;
 		this->capacite = _capacite;
 
 		delete[] vieuxTableau;
