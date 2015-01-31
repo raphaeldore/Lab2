@@ -82,19 +82,23 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 {
 	// Vérifie si l'objet tente de s'assigné à lui même
 	// Si oui, on arrête ici.
-	if (this == &_dynamicArray)	return *this;
-
-	// On désalloue la mémoire du tableau
-	delete[] this->tabElements;
-
-	// On alloue de la mémoire pour contenir les éléments de _dynamicArray
-	this->tabElements = new int[_dynamicArray.getCapacite()];
-	this->setCapacite(_dynamicArray.getCapacite());
-
-	// On copie les valeurs de _dynamicArray
-	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	if (this != &_dynamicArray)
 	{
-		this->setElement(i, _dynamicArray.getElement(i));
+		if (this->getCapacite() != _dynamicArray.getCapacite()) // Si la capacité est la même, inutile de supprimer et d'allouer ensuite la même quantité... 
+		{
+			// On désalloue la mémoire du tableau
+			delete[] this->tabElements;
+
+			// On alloue de la mémoire pour contenir les éléments de _dynamicArray
+			tabElements = new int[_dynamicArray.getCapacite()];
+			this->capacite = _dynamicArray.getCapacite();
+		}
+
+		// On copie ensuite les valeurs de _dynamicArray
+		for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+		{
+			this->setElement(i, _dynamicArray.getElement(i));
+		}
 	}
 
 	// Finalement on retourne une référence de soi-même
@@ -104,7 +108,7 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 DynamicArray& DynamicArray::operator+=(const DynamicArray& _dynamicArray)
 {
 	DynamicArray dynamicArrayAAdditionner;
-	if (&_dynamicArray == this) // Si on s'additionne soit-même
+	if (&_dynamicArray == this) // Si on s'additionne soi-même
 	{
 		dynamicArrayAAdditionner = *this;
 	}
