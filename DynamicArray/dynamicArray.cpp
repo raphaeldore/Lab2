@@ -42,7 +42,7 @@ int DynamicArray::getElement(const int& _index) const
 
 void DynamicArray::setElement(const unsigned int _index, const int _valeur)
 {
-	if (_index > this->capacite - 1)
+	if (_index >= this->capacite)
 	{
 		this->setCapacite(_index + 1);
 	}
