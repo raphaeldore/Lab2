@@ -7,6 +7,11 @@ DynamicArray::DynamicArray()
 	this->tabElements = new int[100](); // Initialise tous les éléments à 0
 }
 
+DynamicArray::~DynamicArray()
+{
+	delete[] this->tabElements;
+}
+
 DynamicArray::DynamicArray(const unsigned int& _capacite)
 {
 	if (_capacite < 1)

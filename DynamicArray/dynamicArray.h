@@ -5,6 +5,7 @@ class DynamicArray
 {
 public:
 	DynamicArray();
+	~DynamicArray();
 	DynamicArray(const unsigned int & _capacite);
 	DynamicArray(const DynamicArray & _dynamicArray);
 
