@@ -13,6 +13,8 @@ public:
 	void setElement(const unsigned int _index, const int _valeur);
 	void setCapacite(const unsigned int _capacite);
 
+	DynamicArray& operator=(const DynamicArray & _dynamicArray);
+
 private:
 	unsigned int capacite;
 	int * tabElements;

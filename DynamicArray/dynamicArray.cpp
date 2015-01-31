@@ -75,3 +75,26 @@ void DynamicArray::setCapacite(const unsigned int _capacite)
 		delete[] vieuxTableau;
 	}
 }
+
+DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
+{
+	// Vérifie si l'objet tente de s'assigné à lui même
+	// Si oui, on arrête ici.
+	if (this == &_dynamicArray)	return *this;
+
+	// On désalloue la mémoire du tableau
+	delete[] this->tabElements;
+
+	// On alloue de la mémoire pour contenir les éléments de _dynamicArray
+	this->tabElements = new int[_dynamicArray.getCapacite()];
+	this->setCapacite(_dynamicArray.getCapacite());
+
+	// On copie les valeurs de _dynamicArray
+	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	{
+		this->setElement(i, _dynamicArray.getElement(i));
+	}
+
+	// Finalement on retourne une référence de soi-même
+	return *this;
+}
