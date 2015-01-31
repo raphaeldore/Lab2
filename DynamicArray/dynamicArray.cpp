@@ -112,15 +112,9 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 
 DynamicArray& DynamicArray::operator+=(const DynamicArray& _dynamicArray)
 {
-	DynamicArray dynamicArrayAAdditionner;
-	if (&_dynamicArray == this) // Si on s'additionne soi-même
-	{
-		dynamicArrayAAdditionner = *this;
-	}
-
-	dynamicArrayAAdditionner = _dynamicArray;
-
+	DynamicArray dynamicArrayAAdditionner = _dynamicArray; // On fait une copie
 	int capaciteDeDepart = this->getCapacite();
+
 	for (int i = 0; i < dynamicArrayAAdditionner.getCapacite(); i++)
 	{
 		this->setElement(i + capaciteDeDepart, dynamicArrayAAdditionner.getElement(i));
