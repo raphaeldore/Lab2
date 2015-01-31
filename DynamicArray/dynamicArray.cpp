@@ -99,6 +99,24 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 	return *this;
 }
 
+DynamicArray& DynamicArray::operator+=(const DynamicArray& _dynamicArray)
+{
+	int capaciteDeDepart = this->getCapacite();
+	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	{
+		this->setElement(i + capaciteDeDepart, _dynamicArray.getElement(i));
+	}
+
+	return *this;
+}
+
+const DynamicArray DynamicArray::operator+(const DynamicArray& _dynamicArray) const
+{
+	DynamicArray resultat = *this;
+	resultat += _dynamicArray;
+	return resultat;
+}
+
 bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
 {
 	if (this == &_dynamicArray) return true; // Si on se compare soit-même
@@ -116,5 +134,4 @@ bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
 	}
 
 	return isEqual;
-
 }
