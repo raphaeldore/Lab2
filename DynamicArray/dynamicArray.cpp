@@ -15,6 +15,17 @@ DynamicArray::DynamicArray(const unsigned int& _capacite)
 	this->tabElements = new int[_capacite]();
 }
 
+DynamicArray::DynamicArray(const DynamicArray& _dynamicArray)
+{
+	this->tabElements = new int[_dynamicArray.getCapacite()];
+	this->capacite = _dynamicArray.getCapacite();
+
+	for (unsigned int i = 0; i < _dynamicArray.getCapacite(); i++)
+	{
+		this->setElement(i, _dynamicArray.getElement(i));
+	}
+}
+
 int DynamicArray::getCapacite() const
 {
 	return this->capacite;
