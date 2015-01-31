@@ -133,7 +133,7 @@ const DynamicArray DynamicArray::operator+(const DynamicArray& _dynamicArray) co
 
 bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
 {
-	if (this == &_dynamicArray) return true; // Si on se compare soit-même
+	if (this == &_dynamicArray) return true; // Si on se compare soi-même
 	if (this->capacite != _dynamicArray.getCapacite()) return false;
 
 	bool isEqual = true;
