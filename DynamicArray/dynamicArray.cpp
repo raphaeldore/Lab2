@@ -98,3 +98,23 @@ DynamicArray& DynamicArray::operator=(const DynamicArray& _dynamicArray)
 	// Finalement on retourne une référence de soi-même
 	return *this;
 }
+
+bool DynamicArray::operator==(const DynamicArray& _dynamicArray)
+{
+	if (this == &_dynamicArray) return true; // Si on se compare soit-même
+	if (this->capacite != _dynamicArray.getCapacite()) return false;
+
+	bool isEqual = true;
+
+	for (unsigned int i = 0; i < this->getCapacite(); i++)
+	{
+		if (this->getElement(i) != _dynamicArray.getElement(i))
+		{
+			isEqual = false;
+			break; // Pas besoin de regarder le reste, puisque au moin un élément n'est pas le même
+		}
+	}
+
+	return isEqual;
+
+}

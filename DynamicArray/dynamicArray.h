@@ -14,6 +14,7 @@ public:
 	void setCapacite(const unsigned int _capacite);
 
 	DynamicArray& operator=(const DynamicArray & _dynamicArray);
+	bool operator==(const DynamicArray & _dynamicArray);
 
 private:
 	unsigned int capacite;
